@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-/* ===== Structures ===== */
 
 typedef struct Client {
     int idClient;
@@ -19,18 +18,16 @@ typedef struct Transaction {
 typedef struct {
     int numCompte;
     float solde;
-    Client *client;              // pointeur vers client
+    Client *client;            
     Transaction *historique;
 } Compte;
 
-/* ===== Variables globales ===== */
 
 Compte comptes[100];
 int nbComptes = 0;
 
 Client *listeClients = NULL;
 
-/* ===== Fonctions Clients (liste chaînée) ===== */
 
 Client* rechercherClient(int id) {
     Client *tmp = listeClients;
@@ -64,7 +61,6 @@ Client* ajouterClient() {
     return c;
 }
 
-/* ===== Fonctions Comptes ===== */
 
 int rechercherCompte(int num, int i) {
     if (i == nbComptes)
@@ -173,14 +169,13 @@ void afficherClients() {
     }
 }
 
-/* ===== Programme principal ===== */
 
 int main() {
     int choix, num;
     float montant;
 
     do {
-        printf("\n===== MENU BANCAIRE =====\n");
+        printf("\n MENU BANCAIRE \n");
         printf("1. Ajouter client\n");
         printf("2. Ajouter compte\n");
         printf("3. Depot\n");
@@ -230,3 +225,4 @@ int main() {
 
     return 0;
 }
+
